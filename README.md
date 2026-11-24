@@ -14,7 +14,7 @@ Character count: **184** (limit: 200).
 
 ## How it works
 
-`main.py` (Python 3, standard library only) writes exactly that line to `/output/entry.txt` — no trailing newline, nothing else. Before writing, it validates the line: 1–200 characters, a single line, no leading or trailing whitespace, no control characters. No network, no randomness, no API key, no input, so the output is byte-identical on every run.
+`main.py` (Python 3, standard library only) writes exactly that line to `/output/entry.txt` — no trailing newline, nothing else. Before writing, it validates the line: 1–200 characters, a single line, not only whitespace, no leading or trailing whitespace, no control characters, and it must name its buyer ("drivers") and state a price ("$" plus a digit). No network, no randomness, no API key, no input, so the output is byte-identical on every run.
 
 ```bash
 python3 main.py
@@ -46,6 +46,8 @@ Eight candidates were drafted and ranked in a single-elimination pairwise tourna
 8. **"We rent out hungry goats to mow suburban lawns: homeowners pay $49 a visit, because the goats eat the weeds, fertilise as they go, and the neighbours' kids think it's a petting zoo."** — 181 chars. Rent-a-goat is a real, established business, so it fails the "never heard before" test outright.
 
 The first draft of the winner was shorter and flatter — "We sell naming rights to potholes: drivers pay $5 to name the crater that wrecked their tyre, and the council fixes the named ones first." (152 chars) — and the revision added "ate their tyre", "fills", and the named pothole "Dave's Revenge", which is where the laugh-to-nod turn actually lives. See the revision note in `main.py`.
+
+Second revision (2026-11-24): the line itself is unchanged at 184 characters. `validate()` in `main.py` now also rejects a whitespace-only line and verifies the line names its buyer ("drivers") and states a price ("$" plus a digit), and the docstring maps the line onto each of the bounty's five judge criteria (bizarre, novel, business logic holds, laugh-to-nod turn, concrete buyer and thing).
 
 Referral code: 0txwmf1m
 
